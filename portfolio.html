@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Cardápio - Daiana Salgados</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="brand-name">Daiana Salgados</a>
+
+            <button class="hamburger-menu" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="portfolio.html">Cardápio</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <form class="search-form" action="search.html" method="GET">
+                    <input type="search" name="q" placeholder="Pesquisar no site...">
+                    <button type="submit">Buscar</button>
+                </form>
+                <button id="theme-toggle">Mudar Tema</button>
+                <div id="auth-links">
+                    <a href="login.html" id="login-link">Login</a>
+                    <div id="user-profile" class="hidden">
+                        <img id="user-avatar" src="images/icon_perfil.png" alt="Avatar do Usuário" width="30" height="30">
+                        <span id="username-display"></span>
+                        <a href="#" id="logout-link">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="portfolio">
+            <h1>Nosso Cardápio de Delícias</h1>
+            <div id="filter-buttons">
+                <button class="filter-btn active" data-category="todos">Todos</button>
+                <button class="filter-btn" data-category="coxinha">Coxinhas</button>
+                <button class="filter-btn" data-category="pastel">Pastéis</button>
+                <button class="filter-btn" data-category="bomba">Bombas</button>
+            </div>
+
+            <div id="project-grid">
+                <div class="project-card" data-category="coxinha">
+                    <img src="images/coxinha-1.jpg" alt="Coxinha de Frango com Catupiry">
+                    <h3>Coxinha de Frango com Catupiry</h3>
+                    <p>A clássica! Massa crocante por fora, recheio de frango desfiado e um coração de catupiry cremoso.</p>
+                </div>
+                <div class="project-card" data-category="coxinha">
+                    <img src="images/coxinha-2.jpg" alt="Coxinha de Carne Seca">
+                    <h3>Coxinha de Carne Seca</h3>
+                    <p>Uma deliciosa variação nordestina com carne seca refogada na manteiga de garrafa e queijo coalho.</p>
+                </div>
+
+                <div class="project-card" data-category="pastel">
+                    <img src="images/pastel_2.jpg" alt="Pastel de Queijo">
+                    <h3>Pastel de Queijo</h3>
+                    <p>Massa fininha e crocante recheada com um mix de queijos que derretem na boca. Impossível comer um só!</p>
+                </div>
+                <div class="project-card" data-category="pastel">
+                    <img src="images/pastel-1.jpg" alt="Pastel de Carne com Azeitona">
+                    <h3>Pastel de Carne com Azeitona</h3>
+                    <p>O favorito da galera! Carne moída bem temperada com um toque especial de azeitonas verdes picadas.</p>
+                </div>
+
+                <div class="project-card" data-category="bomba">
+                    <img src="images/bomba-1.jpg" alt="Bomba de Chocolate">
+                    <h3>Bomba de Chocolate</h3>
+                    <p>Para os amantes de doce, uma bomba fofinha recheada com brigadeiro cremoso e cobertura de chocolate.</p>
+                </div>
+                <div class="project-card" data-category="bomba">
+                    <img src="images/bomba-2.jpg" alt="Bomba de Creme">
+                    <h3>Bomba Tradicional</h3>
+                    <p>Recheio clássico de mortadela.</p>
+                </div>
+            </div>
+             <div id="no-projects-message" class="hidden">
+                <h3>Nenhum produto encontrado nesta categoria!</h3>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Daiana Salgados. Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="login-modal-overlay" class="hidden">
+        <div id="login-modal">
+            <button id="close-modal-btn">&times;</button>
+            <h2>Login</h2>
+            <form id="login-form" novalidate>
+                <div class="form-group">
+                    <label for="username">E-mail:</label>
+                    <input type="text" id="username" name="username" required>
+                    </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/filter.js"></script>
+    <script src="js/ui-enhancements.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daiana Salgados</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="brand-name">Daiana Salgados</a>
+
+            <button class="hamburger-menu" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="portfolio.html">Cardápio</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <form class="search-form" action="search.html" method="GET">
+                    <input type="search" name="q" placeholder="Pesquisar no site...">
+                    <button type="submit">Buscar</button>
+                </form>
+                <button id="theme-toggle">Mudar Tema</button>
+                <div id="auth-links">
+                    <a href="login.html" id="login-link">Login</a>
+                    <div id="user-profile" class="hidden">
+                        <img id="user-avatar" src="images/icon_perfil.png" alt="Avatar do Usuário" width="30" height="30">
+                        <span id="username-display"></span>
+                        <a href="#" id="logout-link">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="carousel-section" class="carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img class="carousel-img" src="images/banner-01.jpg" alt="Banner promocional 1">
+                    <div class="carousel-caption">Hamburguer</div>
+                </div>
+                <div class="carousel-slide" >
+                    <img class="carousel-img" src="images/banner-02.jpg" alt="Banner promocional 2">
+                    <div class="carousel-caption">Porções</div>
+                </div>
+                <div class="carousel-slide">
+                    <img  class="carousel-img" src="images/banner-03.jpg" alt="Banner promocional 3">
+                    <div class="carousel-caption">Coxinhas</div>
+                </div>
+                <div class="carousel-slide">
+                    <img class="carousel-img" src="images/banner-04.jpg" alt="Banner promocional 3">
+                    <div class="carousel-caption">Empanados</div>
+                </div>
+            </div>
+            <button class="carousel-control prev">&lt;</button>
+            <button class="carousel-control next">&gt;</button>
+        </section>
+
+        <section>
+            <h1>Daiana Salgados: A Tradição do Sabor Artesanal em Piripiri</h1>
+
+            <p>Seja muito bem-vindo ao nosso cantinho digital! A Daiana Salgados nasceu em Piripiri do sonho de compartilhar um sabor que conforta a alma e celebra os encontros. Somos mais que uma simples fábrica de salgados; somos artesãos dedicados a transformar ingredientes frescos e de alta qualidade nas delícias que acompanham os melhores momentos da sua vida. Desde uma pausa para o lanche da tarde até a comemoração de uma grande conquista, estamos aqui para servir com excelência, carinho e, claro, muito recheio! Convidamos você a navegar por nosso site e sentir um pouco da paixão que colocamos em cada receita.</p>
+
+            <p>Nossa jornada começou de forma modesta, com uma receita de família que atravessou gerações, aprimorada a cada festa e elogiada por todos os amigos. O sucesso foi tanto que o que era um passatempo se transformou em vocação. Decidimos, então, que era hora de levar esse sabor único para toda a nossa querida cidade de Piripiri. Mantendo a base da receita original, investimos em uma estrutura profissional, com equipamentos modernos e um rigoroso controle de higiene, mas sem nunca perder a essência do preparo manual e o toque caseiro que nos diferencia. Cada salgado que sai da nossa cozinha carrega um pedaço da nossa história e o compromisso de entregar não apenas um alimento, mas uma experiência de afeto e qualidade.</p>
+            
+            <p>Para nós, a qualidade é um ingrediente que não se negocia. A base de um salgado inesquecível está na seleção criteriosa da matéria-prima. Por isso, damos preferência a fornecedores locais de Piripiri e da região, garantindo que ingredientes como o frango, a carne e os vegetais sejam sempre frescos e saborosos. A massa, leve e crocante, é sovada diariamente, e os recheios são preparados com temperos naturais, cozidos lentamente para apurar cada nota de sabor. Nosso processo, embora eficiente, é profundamente artesanal. Acreditamos que o cuidado em moldar cada coxinha e fechar cada pastel faz toda a diferença no resultado final, um salgado com aparência perfeita, textura ideal e um recheio generoso e suculento em cada mordida.</p>
+            
+            <p>Sabemos que variedade é fundamental para agradar a todos os gostos. Em nosso portfólio, você encontrará desde os clássicos indispensáveis até criações especiais da casa. Nossas coxinhas de frango desfiado são famosas pelo recheio cremoso, enquanto os kibes, crocantes por fora e macios por dentro, são temperados com um toque de especiarias que os tornam únicos. Não deixe de provar também nossas bolinhas de queijo, que esticam e derretem na boca, ou as empadas de massa delicada que desmancham a cada garfada. Além dos fritos, oferecemos uma linha de salgados assados, perfeitos para quem busca uma opção mais leve sem abrir mão do sabor. Explore nosso menu e descubra o seu favorito!</p>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Daiana Salgados. Todos os direitos reservados.</p>
+    </footer>
+
+    <button id="back-to-top" class="hidden">↑</button>
+    <div id="login-modal-overlay" class="hidden">
+        <div id="login-modal">
+            <button id="close-modal-btn">&times;</button>
+            <h2>Login</h2>
+            <form id="login-form" novalidate>
+                <div class="form-group">
+                    <label for="username">E-mail:</label>
+                    <input type="text" id="username" name="username" required>
+                    </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/carousel.js"></script>
+    <script src="js/ui-enhancements.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

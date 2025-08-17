@@ -1,0 +1,596 @@
+/*
+    Arquivo: css/style.css
+    Projeto: Daiana Salgados
+    Descrição: Folha de estilos principal do site.
+*/
+
+
+/* 1. Variáveis Globais e Tema 
+   ========================================================================== */
+
+/* Define as cores, fontes e sombras padrão (Tema Claro). */
+:root {
+    --cor-primaria: #ff6b6b;
+    --cor-secundaria: #ffd166;
+    --cor-fundo: #fff8f0;
+    --cor-texto: #4a4a4a;
+    --cor-surface: #ffffff;
+    --sombra: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-principal: 'Arial', sans-serif;
+}
+
+/* Sobrescreve as variáveis para o Tema Escuro quando a classe .dark-theme é aplicada. */
+.dark-theme {
+    --cor-primaria: #ff8787;
+    --cor-secundaria: #ffe08b;
+    --cor-fundo: #2d2d2d;
+    --cor-texto: #f0f0f0;
+    --cor-surface: #4a4a4a;
+    --sombra: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* 2. Estilos Gerais e Reset 
+   ========================================================================== */
+
+/* Reseta margens e paddings de todos os elementos. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Garante que o layout possa ocupar a altura total da tela. */
+html, body {
+    height: 100%;
+}
+
+/* Define a fonte e as cores de fundo/texto padrão para todo o site. */
+body {
+    font-family: var(--font-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilos padrão para links e imagens. */
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: var(--cor-secundaria);
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* 3. Estrutura Principal (Header, Main, Footer) 
+   ========================================================================== */
+
+/* Cabeçalho fixo no topo da página. */
+header {
+    background-color: var(--cor-surface);
+    box-shadow: var(--sombra);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+/* Seção de conteúdo principal com largura limitada e centralizada. */
+main section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Rodapé do site. */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    background-color: var(--cor-surface);
+    transition: background-color 0.3s;
+}
+
+
+/* 4. Barra de Navegação (Navbar) 
+   ========================================================================== */
+
+/* Contêiner principal da navegação. */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Nome da marca/logo. */
+nav .brand-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-primaria);
+}
+
+/* Container dos itens do menu para o layout desktop. */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Lista de links da navegação. */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+nav ul a {
+    font-weight: bold;
+    color: var(--cor-texto);
+}
+
+/* Botão do menu hambúrguer (escondido no desktop). */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+.hamburger-menu .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--cor-texto);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+/* 4. Barra de Navegação (Navbar) 
+   ========================================================================== */
+
+.search-form button,
+#theme-toggle {
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--cor-primaria);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.search-form button:hover,
+#theme-toggle:hover {
+    opacity: 0.9;
+}
+
+/* 5. Componentes Específicos 
+   ========================================================================== */
+
+/* -- 5.1 Carrossel -- */
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 2rem auto 0 auto;
+}
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+    height: 40vw;
+    max-height: 500px;
+    overflow: hidden;
+    background-color: #000000;
+}
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+}
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+.carousel-control.prev { left: 10px; }
+.carousel-control.next { right: 10px; }
+
+
+/* -- 5.2 Cardápio e Filtros -- */
+#filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.filter-btn {
+    padding: 0.6rem 1.5rem;
+    border: 1px solid var(--cor-primaria);
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+#project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.project-card {
+    background-color: var(--cor-surface);
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+}
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: var(--cor-fundo);
+}
+.project-card h3 {
+    padding: 1rem 1rem 0.5rem 1rem;
+    font-size: 1.2rem;
+}
+.project-card p {
+    padding: 0 1rem 1rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* -- 5.3 Tipografia (Títulos e Parágrafos) -- */
+main section h1 {
+    color: var(--cor-primaria);
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+main section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+main section p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* -- 5.4 Formulários -- */
+.search-form {
+    display: flex;
+}
+#contact-section {
+    max-width: 700px;
+    background-color: var(--cor-surface);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.search-form input,
+#contact-form input,
+#login-modal input,
+#contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+#contact-form input:focus, 
+#login-modal input:focus, 
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+}
+#contact-form button[type="submit"],
+#login-modal button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--cor-primaria);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+#contact-form button[type="submit"]:hover,
+#login-modal button[type="submit"]:hover {
+    opacity: 0.9;
+}
+#char-counter {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 5px;
+}
+#char-counter.error {
+    color: var(--cor-primaria);
+    font-weight: bold;
+}
+.input-error {
+    border-color: var(--cor-primaria) !important;
+}
+.form-error-message {
+    color: var(--cor-primaria);
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Estilo para o botão 'Copiar E-mail' na página de contato */
+.contact-direct button {
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--cor-secundaria); /* Usa a cor secundária para diferenciar da ação principal */
+    color: var(--cor-texto); /* Cor de texto escura para melhor contraste com o amarelo */
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.contact-direct button:hover {
+    opacity: 0.9;
+}
+
+/* Estilo para quando o botão estiver desabilitado (após clicar em 'Copiado!') */
+.contact-direct button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Ajuste para o tema escuro */
+.dark-theme .contact-direct button {
+    color: var(--cor-fundo);
+}
+/* -- 5.5 Resultados da Busca -- */
+.result-item {
+    background-color: var(--cor-surface);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--sombra);
+    border-left: 5px solid var(--cor-primaria); /* Detalhe visual com a cor primária */
+    transition: box-shadow 0.3s;
+}
+
+.result-item:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.result-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.result-item h3 a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: var(--cor-primaria);
+}
+
+.result-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left; /* Alinhado à esquerda para melhor leitura do trecho */
+    margin-bottom: 0;
+}
+
+/* Estilo para o termo de busca destacado */
+.result-item mark {
+    background-color: var(--cor-secundaria);
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: var(--cor-texto);
+}
+
+.dark-theme .result-item mark {
+    color: var(--cor-fundo);
+}
+
+/* 6. Melhorias de Interface (UI) 
+   ========================================================================== */
+
+/* -- 6.1 Modal de Login -- */
+#login-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#login-modal {
+    position: relative;
+    background-color: var(--cor-surface);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 500px;
+    z-index: 2000;
+}
+#close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--cor-texto);
+    cursor: pointer;
+}
+
+/* -- 6.2 Notificação (Toast) -- */
+#custom-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+#custom-toast.show {
+    opacity: 1;
+    visibility: visible;
+    bottom: 50px;
+}
+#custom-toast.success {
+    background-color: #28a745;
+    color: white;
+}
+#custom-toast.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* -- 6.3 Botão Voltar ao Topo -- */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--cor-primaria);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: var(--sombra);
+}
+
+/* -- 6.4 Classe Utilitária -- */
+.hidden {
+    display: none !important;
+}
+
+
+/* 7. Responsividade (Telas Menores) 
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Ajustes na navegação para o menu hambúrguer. */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-surface);
+        box-shadow: var(--sombra);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 1.5rem;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    .hamburger-menu {
+        display: flex;
+    }
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Ajustes de tipografia e espaçamento para telas menores. */
+    main section h1 {
+        font-size: 1.8rem;
+    }
+    #contact-section {
+        padding: 1.5rem 1rem;
+    }
+    #contact-section h2 {
+        font-size: 1.6rem;
+    }
+    #contact-form input, #contact-form textarea, #login-modal input {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+    #contact-form button[type="submit"], #login-modal button[type="submit"] {
+        padding: 0.9rem;
+    }
+}

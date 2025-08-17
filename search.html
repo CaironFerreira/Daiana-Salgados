@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Pesquisa - Daiana Salgados</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="brand-name">Daiana Salgados</a>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="portfolio.html">Cardápio</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <form class="search-form" action="search.html" method="GET">
+                <input type="search" name="q" placeholder="Pesquisar no site...">
+                <button type="submit">Buscar</button>
+            </form>
+            <button id="theme-toggle">Mudar Tema</button>
+            <div id="auth-links">
+                <a href="login.html" id="login-link">Login</a>
+                <div id="user-profile" class="hidden">
+                    <img id="user-avatar" src="images/icon_perfil.png" alt="Avatar do Usuário" width="30" height="30">
+                    <span id="username-display"></span>
+                    <a href="#" id="logout-link">Sair</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="search-results-section">
+            <h1>Resultados da Pesquisa para "<span id="search-term"></span>"</h1>
+            <div id="results-container">
+                <p>Buscando...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Daiana Salgados. Todos os direitos reservados.</p>
+    </footer>
+
+    <button id="back-to-top" class="hidden">↑</button>
+
+    <script src="js/search.js"></script>
+    <script src="js/ui-enhancements.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
